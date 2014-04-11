@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html manifest="offline.appcache">
 <head>
     <meta charset="UTF-8" />
@@ -24,6 +24,7 @@
 			touch-action: none;
 			-ms-touch-action: none;
 		}
+		div {display:inline-block;}
     </style>
 </head> 
 <body> 
@@ -32,19 +33,11 @@
 	
 	<script>
 	(function(){
-
 		if (window.location.protocol.substr(0, 4) === "file")
-		{
-			alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
-		}
-	})();
+		{alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");}})();
 	</script>
-	
-
-	<div id="c2canvasdiv" style="display:inline-block">
-
+	<div id="c2canvasdiv">
 		<canvas id="c2canvas" width="640" height="640">
-
 			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
 			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
 			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
@@ -52,50 +45,31 @@
 			<a href="http://www.apple.com/safari/download/">Apple Safari</a><br/>
 			<a href="http://www.google.com/chromeframe">Google Chrome Frame for Internet Explorer</a><br/></h1>
 		</canvas>
-		
 	</div>
-
 	<script src="jquery-2.0.0.min.js"></script>
-
 	<script src="c2runtime.js"></script>
-
     <script>
-
 		jQuery(window).resize(function() {
 			cr_sizeCanvas(jQuery(window).width(), jQuery(window).height());
 		});
-		
 
 		jQuery(document).ready(function ()
 		{			
-
 			cr_createRuntime("c2canvas");
 		});
-		
-
 		function onVisibilityChanged() {
 			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
 				cr_setSuspended(true);
 			else
 				cr_setSuspended(false);
 		};
-		
 		document.addEventListener("visibilitychange", onVisibilityChanged, false);
 		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
 		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
 		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
-		
     </script>
-    <div style="display:none"><!--LiveInternet counter--><script type="text/javascript"><!--
-document.write("<a href='http://www.liveinternet.ru/click' "+
-"target=_blank><img src='//counter.yadro.ru/hit?t50.1;r"+
-escape(document.referrer)+((typeof(screen)=="undefined")?"":
-";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-";"+Math.random()+
-"' alt='' title='LiveInternet' "+
-"border='0' width='31' height='31'><\/a>")
-//--></script><!--/LiveInternet--></div>
-<div align="right"><a href='http://toodoo.ru/donate/donate?blog_id=632383&amount=30'><img src='http://static.toodoo.ru/img/donate_gray.png' border='0' alt='Пожертвовать' /></a></div>
+<div style="display:none"><!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+"target=_blank><img src='//counter.yadro.ru/hit?t50.1;r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random()+"' alt='' title='LiveInternet' "+"border='0' width='31' height='31'><\/a>")//--></script><!--/LiveInternet--></div>
+<div><a href='http://toodoo.ru/donate/donate?blog_id=632383&amount=50'><img src='http://static.toodoo.ru/img/donate_gray.png' border='0' alt='Пожертвовать' /></a></div>
 </body> 
 </html> 
